@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* samo content canvas, ne UI/post title */
+.editor-styles-wrapper .block-editor-writing-flow {
+    font-family: Satoshi, sans-serif !important;
+}
+
+/* headings samo u contentu */
+.editor-styles-wrapper .block-editor-writing-flow h1,
+.editor-styles-wrapper .block-editor-writing-flow h2,
+.editor-styles-wrapper .block-editor-writing-flow h3,
+.editor-styles-wrapper .block-editor-writing-flow h4,
+.editor-styles-wrapper .block-editor-writing-flow h5,
+.editor-styles-wrapper .block-editor-writing-flow h6 {
+    font-family: "Poltawski Nowy", serif !important;
+}
+
+/* Reset Post Title na WordPress default */
+.editor-styles-wrapper .wp-block-post-title,
+.editor-styles-wrapper .editor-post-title__input {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1e1e1e;
+}

@@ -5,3 +5,160 @@ Description: Circus Custom Theme
 Version: 0.1
 Text Domain: circus
 */
+
+/********* 
+FONT
+*********/
+@font-face {
+    font-family: 'Satoshi';
+    src: url('assets/fonts/Satoshi-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/********* 
+BODY
+*********/
+body {
+    position: relative;
+}
+
+/********* 
+HEADER
+*********/
+.site-header {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 999;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF8EF;
+    padding: 16px;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.custom-logo-link {
+    display: block;
+    line-height: 0;
+}
+
+.custom-logo-link img {
+    display: block;
+    height: 69px; 
+    width: auto;
+}
+
+/* Header Primary Menu */
+.nav-menu li {
+    line-height: 1!important;
+}
+.nav-menu a {
+    font-size: 16px;
+    line-height: 1!important;
+    text-decoration: none;
+    color: #000;
+}
+.nav-menu .menu-btn a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 32px;
+    background-color: #FAF764;
+    border-radius: 2px;
+    margin-left: 8px;;
+}
+
+/********* 
+FOOTER
+*********/
+.site-footer {
+  background: #FFF8EF;
+  margin-top: 8px;
+  padding: 64px 16px;
+}
+.footer-top {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F7ECDE;
+}
+.footer-top-inner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.footer-branding {
+    justify-items: center;
+}
+.footer-branding .custom-logo {
+  max-height: 69px;
+  justify-content: center;
+}
+.footer-text {
+  max-width: 508px;
+  font-size: 13px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.footer-bottom {
+  padding-top: 8px;
+}
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.footer-menu {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu a,
+.footer-createdby span {
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3em;
+}
+
+
+
+
+/********* 
+HOMEPAGE
+*********/
+.hero-cover {
+    border-radius: 2px;
+    overflow: hidden;
+}
+.col-center {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: flex-start;
+}

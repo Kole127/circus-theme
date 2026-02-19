@@ -10,119 +10,125 @@ Text Domain: circus
 FONT
 *********/
 @font-face {
-    font-family: 'Satoshi';
-    src: url('assets/fonts/Satoshi-Variable.woff2') format('woff2');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Satoshi";
+  src: url("assets/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 /********* 
 BODY
 *********/
 body {
-    position: relative;
+  position: relative;
 }
 
 /********* 
 HEADER
 *********/
 .site-header {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 999;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 999;
 }
 
 .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FFF8EF;
-    padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff8ef;
+  padding: 16px;
 }
 
 .nav-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
-
 .site-branding {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .custom-logo-link {
-    display: block;
-    line-height: 0;
+  display: block;
+  line-height: 0;
 }
 
 .custom-logo-link img {
-    display: block;
-    height: 69px; 
-    width: auto;
+  display: block;
+  height: 69px;
+  width: auto;
 }
 
 /* Header Primary Menu */
 .nav-menu li {
-    line-height: 1!important;
+  line-height: 1 !important;
 }
+
 .nav-menu a {
-    font-size: 16px;
-    line-height: 1!important;
-    text-decoration: none;
-    color: #000;
+  font-size: 16px;
+  line-height: 1 !important;
+  text-decoration: none;
+  color: #000;
 }
+
 .nav-menu .menu-btn a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    padding: 0 32px;
-    background-color: #FAF764;
-    border-radius: 2px;
-    margin-left: 8px;;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 32px;
+  background-color: #faf764;
+  border-radius: 2px;
+  margin-left: 8px;
 }
 
 /********* 
 FOOTER
 *********/
 .site-footer {
-  background: #FFF8EF;
+  background: #fff8ef;
   margin-top: 8px;
   padding: 64px 16px;
 }
+
 .footer-top {
-    padding-bottom: 16px;
-    border-bottom: 1px solid #F7ECDE;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f7ecde;
 }
+
 .footer-top-inner {
   display: flex;
   justify-content: center;
   text-align: center;
 }
 .footer-branding {
-    justify-items: center;
+  justify-items: center;
 }
 .footer-branding .custom-logo {
   max-height: 69px;
   justify-content: center;
 }
+
 .footer-text {
   max-width: 508px;
   font-size: 13px;
   margin-top: 8px;
   margin-bottom: 0;
 }
+
 .footer-bottom {
   padding-top: 8px;
 }
+
 .footer-bottom-inner {
   display: flex;
   justify-content: space-between;
@@ -136,6 +142,7 @@ FOOTER
   margin: 0;
   padding: 0;
 }
+
 .footer-menu a,
 .footer-createdby span {
   text-decoration: none;
@@ -145,20 +152,144 @@ FOOTER
   line-height: 1.3em;
 }
 
-
-
-
 /********* 
 HOMEPAGE
 *********/
 .hero-cover {
-    border-radius: 2px;
-    overflow: hidden;
+  border-radius: 2px;
+  overflow: hidden;
 }
+
 .col-center {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: flex-start;
+}
+
+/* JOKES */
+.jokes {
+  max-width: 1032px !important;
+  margin-block-start: 0 !important;
+}
+
+.jokes_controls,
+.jokes_filters {
+  display: flex;
+  justify-content: center;
+}
+.jokes-filterbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.jokes-filterbar__label {
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.jokes-filterbar__field {
+  display: inline-block;
+  position: relative;
+}
+
+.jokes-filterbar__select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 13px !important;
+  font-weight: 700;
+  line-height: 1.4em;
+  background-color: #f7ecde;
+  text-transform: capitalize;
+  border: 0;
+  padding: 16px 48px 16px 16px;
+  cursor: pointer;
+  outline: none;
+  width: auto;
+  min-width: 0;
+  display: inline-block;
+  background-image: url("https://ivankovac.from.hr/wp-content/uploads/2026/02/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px;
+}
+
+.jokes_list {
+  margin-top: 64px;
+}
+
+.jokes-items {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* Joke - Cards */
+.joke {
+  background: #f7ecde;
+  padding: 43px 48px;
+  text-align: center;
+  align-content: center;
+}
+
+.joke__typewrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.joke__type {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px !important;
+}
+
+.joke__type::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #000;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.joke__question {
+  font-size: 16px;
+  line-height: 1.3em;
+  margin: 0 0 8px;
+}
+
+.joke__answer {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+}
+
+/* More button wrapper */
+.jokes_more {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hide margin if element is empty */
+.jokes_more:empty {
+  display: none;
+  margin-top: 0;
+}
+
+.jokes_list:empty {
+  display: none;
+  margin-top: 0;
 }

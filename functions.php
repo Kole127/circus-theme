@@ -235,6 +235,9 @@ add_action('wp_footer', function () { ?>
       }
 
       function init(context = document) {
+        if (context.matches && context.matches(selector)) {
+            split(context);
+        }
         context.querySelectorAll(selector).forEach(split);
       }
 

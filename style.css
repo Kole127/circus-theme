@@ -6,6 +6,17 @@ Version: 0.1
 Text Domain: circus
 */
 
+/* When logged in, WP adds .admin-bar on body and a top offset. Keep layout normal,
+   but push fixed header down so it doesn't collide with admin bar. */
+body.admin-bar .site-header {
+  top: calc(16px + 32px);
+}
+@media (max-width: 781px) {
+  body.admin-bar .site-header {
+    top: calc(16px + 46px);
+  }
+}
+
 /********* 
 FONT
 *********/
@@ -33,7 +44,7 @@ body {
 HEADER
 *********/
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 16px;
   right: 16px;
@@ -96,6 +107,20 @@ HEADER
   margin-left: 8px;
 }
 
+/* HEADROOM */
+.site-header.hr {
+  will-change: transform;
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header.hr--pinned {
+  transform: translateY(0);
+}
+
+.site-header.hr--unpinned {
+  transform: translateY(-120%);
+}
+
 /********* 
 FOOTER
 *********/
@@ -150,11 +175,12 @@ FOOTER
 
 .footer-menu a,
 .footer-createdby span {
+  display: block;
   text-decoration: none;
   color: #000;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.3em;
+  line-height: 1.35em;
 }
 
 .footer-menu a:hover {
@@ -165,10 +191,27 @@ FOOTER
 /********* 
 HOMEPAGE
 *********/
+.hero-cover h1 {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
 .hero-cover {
   border-radius: 2px;
   overflow: hidden;
   position: relative;
+}
+
+.fade-in-txt {
+  opacity: 0;
+}
+
+.fade-in-reveal {
+  opacity: 1;
+}
+
+.js .fade-in-reveal {
+  opacity: 0;
 }
 
 .col-center {
@@ -242,10 +285,12 @@ HOMEPAGE
 
 /* Joke - Cards */
 .joke {
+  box-sizing: border-box;
   background: #f7ecde;
   padding: 43px 48px;
   text-align: center;
   align-content: center;
+  min-height: 200px;
 }
 
 .joke__typewrap {
@@ -261,6 +306,7 @@ HOMEPAGE
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  line-height: 1.25em;
   margin-bottom: 24px !important;
 }
 
@@ -276,7 +322,6 @@ HOMEPAGE
 
 .joke__question {
   font-size: 16px;
-  line-height: 1.3em;
   margin: 0 0 8px;
 }
 
@@ -322,6 +367,11 @@ HOMEPAGE
 }
 /* Mobile */
 @media (max-width: 781px) {
+  body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   /* FONT */
   h1 {
     font-size: 56px;

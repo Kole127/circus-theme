@@ -139,20 +139,18 @@ function initialize_lenis_scroll() {
 add_action('wp_enqueue_scripts', 'initialize_lenis_scroll', 11);
 
 
-// SPLIT LINK HOVER ANIMATION - GSAP
 add_action('wp_footer', function () { ?>
   <style>
     /* Base clickable styles */
-    #menu-main-menu a,
+    #primary-menu a,
     .wp-block-button__link {
       position: relative;
       overflow: hidden;
       display: inline-flex;
       align-items: center;
-      line-height: 1.3em!important;
+      line-height: 1.35em !important;
     }
 
-    /* Letter wrap */
     .gsap-split-hover .letter-wrap {
       position: relative;
       display: inline-block;
@@ -160,14 +158,12 @@ add_action('wp_footer', function () { ?>
       vertical-align: top;
     }
 
-    /* Letter */
     .gsap-split-hover .letter {
       display: block;
       transform: translateY(0%);
       will-change: transform;
     }
 
-    /* Clone (second line) */
     .gsap-split-hover .letter.clone {
       position: absolute !important;
       top: 100%;
@@ -176,13 +172,14 @@ add_action('wp_footer', function () { ?>
     }
   </style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <!-- BITNO: bez defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
       const selector = `
-        #menu-main-menu a,
+        #primary-menu a,
         .wp-block-button__link
       `;
 
@@ -194,7 +191,6 @@ add_action('wp_footer', function () { ?>
 
         el.classList.add("split-init", "gsap-split-hover");
 
-        // accessibility
         if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", text);
 
         el.textContent = "";
@@ -235,15 +231,12 @@ add_action('wp_footer', function () { ?>
       }
 
       function init(context = document) {
-        if (context.matches && context.matches(selector)) {
-            split(context);
-        }
+        if (context.matches && context.matches(selector)) split(context);
         context.querySelectorAll(selector).forEach(split);
       }
 
       init();
 
-      // if menu is injected/changed dynamically
       const observer = new MutationObserver(mutations => {
         for (const m of mutations) {
           for (const n of m.addedNodes) {
@@ -256,3 +249,124 @@ add_action('wp_footer', function () { ?>
     });
   </script>
 <?php });
+
+
+// Hero text animation
+add_action('wp_footer', function () { ?>
+<script>
+window.addEventListener("load", function() {
+
+  if (typeof gsap === "undefined") return;
+
+  const heroTitle = document.querySelector(".hero-cover h1");
+  if (!heroTitle) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroTitle.style.opacity = "1";
+    heroTitle.style.transform = "none";
+    return;
+  }
+
+  gsap.fromTo(heroTitle,
+    { autoAlpha: 0, y: 8 },
+    {
+      autoAlpha: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power2.out",
+      force3D: true
+    }
+  );
+
+});
+</script>
+<?php });
+
+// FADE IN TEXT
+add_action('wp_footer', function () { ?>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  if (typeof gsap === "undefined") return;
+
+  const elements = document.querySelectorAll(".fade-in-txt");
+  if (!elements.length) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    elements.forEach(el => el.style.opacity = "1");
+    return;
+  }
+
+  gsap.to(elements, {
+    opacity: 1,
+    duration: 2,
+    ease: "none"
+  });
+
+});
+</script>
+<?php });
+
+add_action('wp_footer', function () { ?>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('js');
+
+  const els = document.querySelectorAll('.fade-in-reveal');
+  if (!els.length) return;
+
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(el => el.style.opacity = '1');
+    return;
+  }
+
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      gsap.to(entry.target, {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'none'
+      });
+
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: "0px 0px -10% 0px"
+  });
+
+  els.forEach(el => io.observe(el));
+});
+</script>
+<?php });
+
+
+// HEADROOM
+add_action('wp_footer', function () { ?>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const header = document.querySelector(".site-header");
+      if (!header || typeof Headroom === "undefined") return;
+
+      const hr = new Headroom(header, {
+        // koliko pixela scroll-a prije nego reagira
+        offset: 40,
+
+        // koliko tolerira “sitno” skrolanje prije toggla
+        tolerance: { up: 8, down: 8 },
+
+        classes: {
+          initial: "hr",
+          pinned: "hr--pinned",
+          unpinned: "hr--unpinned",
+          top: "hr--top",
+          notTop: "hr--not-top"
+        }
+      });
+
+      hr.init();
+    });
+  </script>
+<?php }, 100);

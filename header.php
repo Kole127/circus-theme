@@ -21,6 +21,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<div class="site-wrapper">
+
 <header class="site-header">
     <div class="container header-inner">
 
@@ -28,12 +30,24 @@
             <?php the_custom_logo(); ?>
         </div>
 
+        <button class="menu-toggle"
+                type="button"
+                aria-controls="primary-menu"
+                aria-expanded="false">
+            <span class="screen-reader-text"><?php esc_html_e('Open menu', 'circus'); ?></span>
+            <img src="https://ivankovac.from.hr/wp-content/uploads/2026/02/menu-button.svg"
+                alt=""
+                width="44"
+                height="44">
+        </button>
+
         <nav class="site-nav" aria-label="<?php esc_attr_e('Primary menu', 'circus'); ?>">
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'primary',
                 'container'      => false,
                 'menu_class'     => 'nav-menu',
+                'menu_id'        => 'primary-menu',
                 'fallback_cb'    => false,
                 'depth'          => 1
             ));

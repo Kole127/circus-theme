@@ -23,7 +23,7 @@
       ],
       "fontSizes": [
         { "slug": "h1", "name": "H1", "size": "64px" },
-        { "slug": "h3", "name": "H3", "size": "40px" },
+        { "slug": "h2", "name": "H2", "size": "40px" },
         { "slug": "p", "name": "Text", "size": "13px" },
         { "slug": "btn", "name": "Button", "size": "16px" }
       ]
@@ -52,7 +52,7 @@
       "fontFamily": "var(--wp--preset--font-family--body)",
       "fontSize": "var(--wp--preset--font-size--p)",
       "fontWeight": "700",
-      "lineHeight": "1.5"
+      "lineHeight": "1.4"
     },
     "elements": {
       "h1": {
@@ -61,16 +61,16 @@
           "fontFamily": "var(--wp--preset--font-family--heading)",
           "fontSize": "64px",
           "fontWeight": "600",
-          "lineHeight": "0.92"
+          "lineHeight": "59px"
         }
       },
-      "h3": {
+      "h2": {
         "color": { "text": "var(--wp--preset--color--black)" },
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--heading)",
           "fontSize": "40px",
           "fontWeight": "500",
-          "lineHeight": "0.8"
+          "lineHeight": "32px"
         }
       },
       "p": {

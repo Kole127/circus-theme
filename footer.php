@@ -45,6 +45,8 @@ $created_by  = function_exists('get_field') ? get_field('created_by', 'option') 
   </div>
 </footer>
 
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

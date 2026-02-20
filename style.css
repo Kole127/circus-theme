@@ -23,6 +23,11 @@ BODY
 body {
   position: relative;
 }
+.site-wrapper {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+}
 
 /********* 
 HEADER
@@ -133,7 +138,7 @@ FOOTER
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 .footer-menu {
   display: flex;
@@ -152,12 +157,18 @@ FOOTER
   line-height: 1.3em;
 }
 
+.footer-menu a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /********* 
 HOMEPAGE
 *********/
 .hero-cover {
   border-radius: 2px;
   overflow: hidden;
+  position: relative;
 }
 
 .col-center {
@@ -287,9 +298,133 @@ HOMEPAGE
 .jokes_more:empty {
   display: none;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .jokes_list:empty {
   display: none;
   margin-top: 0;
+}
+
+/* RESPOSIVITY */
+/* Desktop */
+@media (min-width: 782px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    position: static;
+    padding: 0;
+    background: transparent;
+  }
+}
+/* Mobile */
+@media (max-width: 781px) {
+  /* FONT */
+  h1 {
+    font-size: 56px;
+    line-height: 59px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  /* HEADER */
+  header .custom-logo-link img {
+    height: 47px;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .menu-toggle img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-open .site-nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f7ecde;
+    padding: 20px 16px;
+    z-index: 999;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* HOMEPAGE */
+  .hero-cover > .wp-block-cover__image-background {
+    display: none;
+  }
+
+  .hero-cover {
+    background-image: url("https://ivankovac.from.hr/wp-content/uploads/2026/02/homepage-hero-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .explore-row {
+    gap: 40px;
+  }
+
+  .circus-explore,
+  .circus-explore > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+  .jokes-section {
+    padding-top: 0 !important;
+    padding-bottom: 24px !important;
+  }
+
+  .jokes-section > h2,
+  .jokes-section > p {
+    text-align: left;
+  }
+
+  .punch-it-section {
+    justify-content: start !important;
+  }
+
+  .jokes-items {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .joke {
+    padding: 32px 48px;
+  }
+
+  .jokes_more {
+    margin-bottom: 40px;
+  }
+
+  /* FOOTER */
+  .footer-bottom-inner {
+    flex-direction: column;
+  }
 }
